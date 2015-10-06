@@ -4,7 +4,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 	
 
 ?>
-
+<!DOCTYPE html>
 <html>
 	<body>
 		<form method="POST" action="lab3.php">
@@ -65,6 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 ?>
 
+<!DOCTYPE html>
 <html>
 	<body>
 		<table>
