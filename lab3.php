@@ -2,10 +2,15 @@
 if($_SERVER["REQUEST_METHOD"] == "GET")
 {
 	
-
 ?>
 <!DOCTYPE html>
 <html>
+	<head>
+		<h2>Shopping</h2>
+	</head>
+	<title>
+		Lab 3
+	</title>
 	<body>
 		<form method="POST" action="lab3.php">
 			Invoice Item 1: <input type="text" name="invoiceItem1"></input>
@@ -23,7 +28,6 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 </html>
 
 <?php
-
 }else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$invoiceItem1 = $_POST["invoiceItem1"];
@@ -62,11 +66,16 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-
 ?>
 
 <!DOCTYPE html>
 <html>
+	<head>
+		<h2>Prices</h2>
+	</head>
+	<title>
+		Lab 3
+	</title>
 	<body>
 		<table>
 			<tr>
