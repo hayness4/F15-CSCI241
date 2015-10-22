@@ -67,9 +67,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				<td style="border:1px solid black;"><?php echo "$". $otWage; ?></td>
 			</tr>
 			<tr style="border:1px solid black;">
-				<td style="border:1px solid black;"><br>	</td>
-				<td style="border:1px solid black;">	</td>
-				<td style="border:1px solid black;">	</td>
+				<td style="border:1px solid black;"><br></td>
+				<td style="border:1px solid black;"></td>
+				<td style="border:1px solid black;"></td>
 			</tr>
 			<tr style="border:1px solid black;">
 				<td style="border:1px solid black;">Total:</td>
