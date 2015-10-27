@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 <!DOCTYPE html>
 <html>
 	<head>
-		<h2>Shopping</h2>
+		Shopping
 	</head>
 	<title>
 		Lab 3
@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <!DOCTYPE html>
 <html>
 	<head>
-		<h2>Prices</h2>
+		Prices
 	</head>
 	<title>
 		Lab 3
