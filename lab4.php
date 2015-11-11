@@ -24,15 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 <?php
 }else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$start = $_POST["start"];
-	$end = $_POST["end"];
 ?>
-
-<?php
-}if($_SERVER["REQUEST_METHOD"] == "POST")
-{
-?>
-
 <!DOCTYPE html>
 <html> 
     <head>
@@ -42,39 +34,33 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
     	Lab 4
     </title>
     <body> 
-		<table>
-			<tr>
-				<td>
-					<?php 
-					echo "<pre>";
-					echo "\t" ;
-
-					for($col = $start; $col <= $end; $col++)
- 				   	{
-					    echo  $col . "\t";
-				    }
-		
-					echo "\r\n";
-	    
-				    for($row = $start; $row <= $end; $row++)
-					{
-						echo "\r\n";
-						echo $row . "\t";
+	<?php 
 			
-						for($col = $start; $col <= $end; $col++)
-    					{
-					    	echo ($row*$col) . "\t";
-	   					}
-						
-						echo "\r\n";
-					}
-					echo "</pre>";
-			 		?>
-			 	</td>
-			</tr>
-		</table>
-    </body>
-</html>
+		$start = $_POST["start"];
+		$end = $_POST["end"];
+					
+		echo "<table><tr><td>";
 
+		for($col = $start; $col <= $end; $col++)
+ 	  	{
+		    echo "<th>" .  $col . "</th>";
+	    }
+		
+		echo "<tr>";
+	    
+		for($row = $start; $row <= $end; $row++)
+		{
+			echo "<th>" . $row . "</th>";
+			
+			for($col = $start; $col <= $end; $col++)
+    		{
+				echo "<td>" . ($row * $col) . "</td>";
+	   		}
+						
+			echo "</td></tr>";
+		}
+		echo "</table>";
+		echo "</body></html>";
+	?>
 <?php
 }
