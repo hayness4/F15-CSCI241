@@ -1,5 +1,3 @@
-<h2>Contact List</h2>
-
 <?php 
 $contacts = array(
 	array("name"=>"Tara Parks","phone"=>"1-410-938-2172","email"=>"Maecenas.iaculis.aliquet@auctorquis.com","address"=>"Ap #129-3344 Mattis. Av.","city"=>"Wilmington","state"=>"DE","zip"=>"27437","age"=>48),
@@ -109,10 +107,19 @@ $contacts = array(
 <?php
 if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-			
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lab 6</title>
+	</head>
+	<body>
+	<?php
+		
+	echo "<h2>Contact List</h2>";
 	if(isset($_GET["id"]))
 	{
-		echo "Contact Information:";
+		echo "Contact Information:";	
 		if(isset($contacts[$_GET["id"]]))
 		{
 			echo "<ul>";	
@@ -122,7 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 			}
 			echo "</ul>";
 		}
-			echo "<a href='contacts.php'>Go Back</a>";
+		echo "<a href='contacts.php'>Go Back</a>";
 	}
 	else
 	{
@@ -132,6 +139,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 			echo "<li><a href='contacts.php?id=$name'>{$info["name"]} - {$info["city"]},{$info["state"]}</a></li>";
 		}
 		echo "</ul>";	
-	}	
+	}
+	echo "</body></html>";
 }
 ?>
