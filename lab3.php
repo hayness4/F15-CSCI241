@@ -6,11 +6,8 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 <!DOCTYPE html>
 <html>
 	<head>
-		Shopping
+		<title>Lab 3</title>
 	</head>
-	<title>
-		Lab 3
-	</title>
 	<body>
 		<form method="POST" action="lab3.php">
 			Invoice Item 1: <input type="text" name="invoiceItem1"></input>
@@ -30,82 +27,30 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 <?php
 }else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$invoiceItem1 = $_POST["invoiceItem1"];
-	$invoiceItem2 = $_POST["invoiceItem2"];
-	$invoiceItem3 = $_POST["invoiceItem3"];
-	$invoiceItem4 = $_POST["invoiceItem4"];
 	
-	$invoiceItem1Price = $_POST["invoiceItem1Price"];
-	$invoiceItem2Price = $_POST["invoiceItem2Price"];
-	$invoiceItem3Price = $_POST["invoiceItem3Price"];
-	$invoiceItem4Price = $_POST["invoiceItem4Price"];
+	echo "<table>";
+	echo "<tr><td>Invoice Item 1:	" . $_POST["invoiceItem1"]. "</td>"; 
+	echo "<td>Price:	" . $_POST["invoiceItem1Price"]. "</td></tr>";
+	echo "<tr><td>Invoice Item 2:	" . $_POST["invoiceItem2"]. "</td>"; 
+	echo "<td>Price:	" . $_POST["invoiceItem2Price"]. "</td></tr>";
+	echo "<tr><td>Invoice Item 3:	" . $_POST["invoiceItem3"]. "</td>"; 
+	echo "<td>Price:	" . $_POST["invoiceItem3Price"]. "</td></tr>";
+	echo "<tr><td>Invoice Item 4:	" . $_POST["invoiceItem4"]. "</td>"; 
+	echo "<td>Price:"	 . $_POST["invoiceItem4Price"]. "</td></tr>";
 	
-	$subtotal = $invoiceItem1Price + $invoiceItem2Price + $invoiceItem3Price + $invoiceItem4Price;
-	//echo $subtotal
+	$subtotal = $_POST["invoiceItem1Price"] + $_POST["invoiceItem2Price"] + $_POST["invoiceItem3Price"] + $_POST["invoiceItem4Price"];
 	
+	echo "<tr><td><br>Subtotal:	" . $subtotal;
+	echo "<br>";
 	
 	if(isset($_POST["tax"]))
 	{
 		$taxTotal = $subtotal * 0.7;
-		
-	
+		echo "Tax:	" . $taxTotal;
+		echo "<br>";
+		$total = $subtotal + $taxTotal;
+		echo "Total:	" . $total;
+		echo "</td></tr>";
 	}
-	else 
-	{
-		$taxTotal = 0;
-	}
-		$priceTotal = $subtotal + $taxTotal;
-	
-	}else
-	{
-		//unsupported
-	}
-	
-?>
-
-<?php
-if($_SERVER["REQUEST_METHOD"] == "POST")
-{
-?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-		Prices
-	</head>
-	<title>
-		Lab 3
-	</title>
-	<body>
-		<table>
-			<tr>
-				<td><?php echo "Invoice Item 1:". $invoiceItem1; ?></td>
-				<td><?php echo "Price: ". $invoiceItem1Price; ?></td>
-			</tr>
-			<tr>
-				<td><?php echo "Invoice Item 2:". $invoiceItem2; ?></td>
-				<td><?php echo "Price: ". $invoiceItem2Price; ?></td>
-			</tr>
-			<tr>
-				<td><?php echo "Invoice Item 3:". $invoiceItem3; ?></td>
-				<td><?php echo "Price: ". $invoiceItem3Price; ?></td>
-			</tr>
-			<tr>
-				<td><?php echo "Invoice Item 4:". $invoiceItem4; ?></td>
-				<td><?php echo "Price: ". $invoiceItem4Price; ?></td>
-			</tr>
-			<tr>
-				<td><br><?php echo "Subtotal: ". $subtotal; ?></td>
-			</tr>
-			<tr>
-				<td><?php echo "Tax: ". $taxTotal; ?></td>
-			</tr>
-			<tr>
-				<td><?php echo "Total: ". $priceTotal; ?></td>
-			</tr>
-		</table>
-	</body>
-</html>
-
-<?php
 }
+?>
