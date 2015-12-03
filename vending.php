@@ -10,8 +10,8 @@
 	<body>
 		<font size="5">POS Helper</font><br><br>
 		<form method="POST" action="vending.php">
-			Total Bill: <input type="text" name="total"></input><br><br>
-			Tendered: <input type="text" name="tendered"></input><br><br>
+			Total Bill: <input type="number" name="total"></input><br><br>
+			Tendered: <input type="number" name="tendered"></input><br><br>
 			<input type="submit" value="submit" name="submit">
 		</form>
 	</body>	
@@ -30,7 +30,17 @@
 	<?php	
 		
 		$total = $_POST["total"];
+		if($total <= 0)
+		{
+			echo "Total can't be at or below 0, go back and change it!";
+			exit(1);
+		}
 		$tendered = $_POST["tendered"];
+		if($tendered <= 0)
+		{
+			echo "Tendered can't be at or below 0, go back and change it!";
+			exit(1);
+		}
 	
 		$change = $tendered - $total;
 		

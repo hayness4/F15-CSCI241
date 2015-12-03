@@ -10,10 +10,10 @@
 	<body>
 		<font size="5">Employee Paystub Calculator</font><br><br>
 		<form method="POST" action="paystub.php">
-			Employee ID: <input type="text" name="idNumber"></input><br><br>
+			Employee ID: <input type="number" name="idNumber"></input><br><br>
 			Emplyee Name: <input type="text" name="name"></input><br><br>
-			Hourly Wage: <input type="text" name="wage"></input><br><br>
-			Hours Worked: <input type="text" name="hours"></input><br><br>
+			Hourly Wage: <input type="number" name="wage"></input><br><br>
+			Hours Worked: <input type="number" name="hours"></input><br><br>
 			<input type="submit" value="submit" name="submit">
 		</form>
 	</body>	
@@ -28,14 +28,23 @@
 	<head>
 		<title>Lab 5</title>
 	</head>
-	
 	<body>
 	<?php
 		
 		$idNumber = $_POST["idNumber"];
-		$hours = $_POST["hours"];
 		$name = $_POST["name"];
-		$wage = $_POST["wage"];
+		$wage = $_POST["wage"];	
+		if($wage <= 0)
+		{
+			echo "Hourly wage can't be at or below 0, go back and change it!";
+			exit(1);
+		}
+		$hours = $_POST["hours"];
+		if($hours <= 0)
+		{
+			echo "Hours worked can't be at or below 0, go back and change it!";
+			exit(1);
+		}
 		
 		if(is_numeric($wage) && is_numeric($idNumber) && is_numeric($hours))
 		{
@@ -78,7 +87,7 @@
 				echo"<tr><th>Total:</th><td>" . $totalHours . "</td><td>" . "\$" . $totalPay . "</td></tr>";
 				echo "</table>";
 			}
-		
+
 			function calculateDisbursement($totalPay)
 			{
 				$dollars = (int)$totalPay;
@@ -133,7 +142,7 @@
 			echo "</body></html>";
 		}
 
-		else 
+		else
 		{
 			echo "Please go back and enter correct data!";	
 		}
