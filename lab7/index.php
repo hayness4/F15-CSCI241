@@ -49,6 +49,8 @@ require_once("header.php");
 		$cookie = 1;
 		setcookie("views", $cookie);
 	}
+	
+	setrawcookie("views",base64_encode(implode(",",$views)), time() +  60*60*24);
 	?>
 
 <?php
